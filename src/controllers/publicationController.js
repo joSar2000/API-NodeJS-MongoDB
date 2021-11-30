@@ -22,4 +22,10 @@ const eliminarPublicaciones = async (req, res) => {
     })
 }
 
- module.exports = { consultarPublicaciones, guardarPublicaciones, eliminarPublicaciones };
+const modificarPublicaciones = async (req, res) => {
+    res.json({
+        publicacion: await(publicationService.modificarPublicaciones(req.body))
+    })
+}
+
+ module.exports = { consultarPublicaciones, guardarPublicaciones, eliminarPublicaciones, modificarPublicaciones };

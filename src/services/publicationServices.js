@@ -39,6 +39,20 @@ class PublicationService {
             console.log(error);
         }
     }
+
+    async modificarPublicaciones (publicationEdited){
+        var publicaciónModificada;
+        try {
+            await publicationModel.findOneAndUpdate({
+                _id: publicationEdited._id
+            }, publicationEdited).then ((value) => {
+                publicaciónModificada = publicationEdited;
+            });
+            return publicaciónModificada;
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
 
 module.exports = new PublicationService();
